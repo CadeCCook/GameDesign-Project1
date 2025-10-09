@@ -1,0 +1,25 @@
+{
+  "$GMSound":"",
+  "%Name":"_381259__edwar64896__plate_4",
+  "audioGroupId":{
+    "name":"audiogroup_default",
+    "path":"audiogroups/audiogroup_default",
+  },
+  "bitDepth":1,
+  "bitRate":128,
+  "compression":0,
+  "conversionMode":0,
+  "duration":1.98,
+  "name":"_381259__edwar64896__plate_4",
+  "parent":{
+    "name":"Shatter_Sound",
+    "path":"folders/Sounds/Game Sounds/Shatter_Sound.yy",
+  },
+  "preload":false,
+  "resourceType":"GMSound",
+  "resourceVersion":"2.0",
+  "sampleRate":44100,
+  "soundFile":"_381259__edwar64896__plate_4.wav",
+  "type":0,
+  "volume":1.0,
+}
