@@ -1,0 +1,25 @@
+{
+  "$GMSound":"",
+  "%Name":"_468442__breviceps__video_game_squeak",
+  "audioGroupId":{
+    "name":"audiogroup_default",
+    "path":"audiogroups/audiogroup_default",
+  },
+  "bitDepth":1,
+  "bitRate":128,
+  "compression":0,
+  "conversionMode":0,
+  "duration":0.16006802,
+  "name":"_468442__breviceps__video_game_squeak",
+  "parent":{
+    "name":"Rat-Bat_Sound",
+    "path":"folders/Sounds/Game Sounds/Rat-Bat_Sound.yy",
+  },
+  "preload":false,
+  "resourceType":"GMSound",
+  "resourceVersion":"2.0",
+  "sampleRate":44100,
+  "soundFile":"_468442__breviceps__video_game_squeak.wav",
+  "type":0,
+  "volume":1.0,
+}
