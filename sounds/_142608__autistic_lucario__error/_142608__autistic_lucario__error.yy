@@ -1,0 +1,25 @@
+{
+  "$GMSound":"",
+  "%Name":"_142608__autistic_lucario__error",
+  "audioGroupId":{
+    "name":"audiogroup_default",
+    "path":"audiogroups/audiogroup_default",
+  },
+  "bitDepth":1,
+  "bitRate":128,
+  "compression":0,
+  "conversionMode":0,
+  "duration":0.28510204,
+  "name":"_142608__autistic_lucario__error",
+  "parent":{
+    "name":"Game Sounds",
+    "path":"folders/Sounds/Game Sounds.yy",
+  },
+  "preload":false,
+  "resourceType":"GMSound",
+  "resourceVersion":"2.0",
+  "sampleRate":44100,
+  "soundFile":"_142608__autistic_lucario__error.wav",
+  "type":0,
+  "volume":1.0,
+}
