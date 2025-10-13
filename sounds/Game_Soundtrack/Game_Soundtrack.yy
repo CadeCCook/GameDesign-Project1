@@ -9,7 +9,7 @@
   "bitRate":128,
   "compression":0,
   "conversionMode":0,
-  "duration":15.1437645,
+  "duration":37.310432,
   "name":"Game_Soundtrack",
   "parent":{
     "name":"Sounds",

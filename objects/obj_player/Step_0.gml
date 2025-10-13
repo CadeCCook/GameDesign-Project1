@@ -1,25 +1,31 @@
+var left  = keyboard_check(vk_left);
+var right = keyboard_check(vk_right);
+var up    = keyboard_check_pressed(vk_up);
+var on_ground = instance_place(x, y+1, obj_block);
+
 last_speed = current_speed;
 
-if (keyboard_check(vk_left) || keyboard_check(vk_right)) {
-    if (instance_place(x, y+1, obj_block)) {
+if (left || right) {
+    if (on_ground) {
         current_speed = min(current_speed + acceleration, move_speed);
     } else {
         current_speed = min(current_speed + air_acceleration, move_speed);
     }
 }
 
-if (keyboard_check(vk_left) && !instance_place(x - current_speed, y - 2, obj_block)) {
-    x -= current_speed;
+var dx = 0;
+if (left && !instance_place(x - current_speed, y - 2, obj_block)) {
+    dx -= current_speed;
     image_xscale = -1;
 }
-
-if (keyboard_check(vk_right) && !instance_place(x + current_speed, y - 2, obj_block)) {
-    x += current_speed;
+if (right && !instance_place(x + current_speed, y - 2, obj_block)) {
+    dx += current_speed;
     image_xscale = 1;
 }
+x += dx;
 
-if (!keyboard_check(vk_right) && !keyboard_check(vk_left)) {
-    if (instance_place(x, y+1, obj_block)) {
+if (!right && !left) {
+    if (on_ground) {
         last_speed = 0;
         current_speed = 0;
     } else {
@@ -27,17 +33,38 @@ if (!keyboard_check(vk_right) && !keyboard_check(vk_left)) {
     }
 }
 
-
-if (keyboard_check_pressed(vk_up) && instance_place(x, y+1, obj_block)) {
-    var bonus = 1 + 0.10 * global.shop.jump_level;
+if (up && on_ground) {
+    var bonus = 1.4 + 0.10 * global.shop.jump_level;
     var jump_impulse = base_jump_speed * bonus;
     vspeed = jump_impulse;
 }
 
-if (!instance_place(x, y+1, obj_block)) {
+if (!on_ground) {
     gravity = 0.25;
 } else {
     gravity = 0;
 }
 
 vspeed = min(vspeed, 12);
+
+
+if (on_ground && abs(dx) > 0.05) {
+    if (sprite_index != spr_player_run) {
+        sprite_index = spr_player_run;
+        image_speed  = 0.18;
+    }
+} 
+
+else if (on_ground) {
+    if (sprite_index != spr_player) {
+        sprite_index = spr_player;
+    }
+    image_speed = 0;
+} 
+
+else {
+    if (sprite_index != spr_player) {
+        sprite_index = spr_player;
+    }
+    image_speed = 0;
+}
