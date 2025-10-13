@@ -12,8 +12,8 @@
   "duration":1.1,
   "name":"_337049__shinephoenixstormcrow__320655__rhodesmas__level_up_01",
   "parent":{
-    "name":"Game Sounds",
-    "path":"folders/Sounds/Game Sounds.yy",
+    "name":"Sounds",
+    "path":"folders/Sounds.yy",
   },
   "preload":false,
   "resourceType":"GMSound",

@@ -9,11 +9,11 @@
   "bitRate":128,
   "compression":0,
   "conversionMode":0,
-  "duration":37.310432,
+  "duration":15.1437645,
   "name":"Game_Soundtrack",
   "parent":{
-    "name":"Game Sounds",
-    "path":"folders/Sounds/Game Sounds.yy",
+    "name":"Sounds",
+    "path":"folders/Sounds.yy",
   },
   "preload":false,
   "resourceType":"GMSound",
@@ -21,5 +21,5 @@
   "sampleRate":44100,
   "soundFile":"Game_Soundtrack.mp3",
   "type":0,
-  "volume":0.08,
+  "volume":1.0,
 }

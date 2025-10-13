@@ -12,8 +12,8 @@
   "duration":1.98,
   "name":"_381259__edwar64896__plate_4",
   "parent":{
-    "name":"Shatter_Sound",
-    "path":"folders/Sounds/Game Sounds/Shatter_Sound.yy",
+    "name":"Sounds",
+    "path":"folders/Sounds.yy",
   },
   "preload":false,
   "resourceType":"GMSound",

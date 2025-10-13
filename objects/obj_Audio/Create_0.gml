@@ -21,4 +21,4 @@ function music_play(track, priority = 1, loop = true, fade_ms = 400) {
     global._music_to_stop = old;
 }
 
-//music_play(Game_Soundtrack);
+music_play(Game_Soundtrack);

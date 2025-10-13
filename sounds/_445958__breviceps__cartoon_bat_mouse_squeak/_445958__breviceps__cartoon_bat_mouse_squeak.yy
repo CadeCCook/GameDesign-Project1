@@ -12,8 +12,8 @@
   "duration":0.4455102,
   "name":"_445958__breviceps__cartoon_bat_mouse_squeak",
   "parent":{
-    "name":"Rat-Bat_Sound",
-    "path":"folders/Sounds/Game Sounds/Rat-Bat_Sound.yy",
+    "name":"Sounds",
+    "path":"folders/Sounds.yy",
   },
   "preload":false,
   "resourceType":"GMSound",

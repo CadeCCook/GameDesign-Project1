@@ -12,8 +12,8 @@
   "duration":0.974059,
   "name":"_548231__max2587__glass_3",
   "parent":{
-    "name":"Shatter_Sound",
-    "path":"folders/Sounds/Game Sounds/Shatter_Sound.yy",
+    "name":"Sounds",
+    "path":"folders/Sounds.yy",
   },
   "preload":false,
   "resourceType":"GMSound",

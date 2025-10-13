@@ -12,8 +12,8 @@
   "duration":0.16006802,
   "name":"_468442__breviceps__video_game_squeak",
   "parent":{
-    "name":"Rat-Bat_Sound",
-    "path":"folders/Sounds/Game Sounds/Rat-Bat_Sound.yy",
+    "name":"Sounds",
+    "path":"folders/Sounds.yy",
   },
   "preload":false,
   "resourceType":"GMSound",

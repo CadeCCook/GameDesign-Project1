@@ -31,8 +31,8 @@
   "resourceVersion":"2.0",
   "solid":false,
   "spriteId":{
-    "name":"Coin_120x120",
-    "path":"sprites/Coin_120x120/Coin_120x120.yy",
+    "name":"f0375850_4803_420c_be3e_ebb627d4d54f",
+    "path":"sprites/f0375850_4803_420c_be3e_ebb627d4d54f/f0375850_4803_420c_be3e_ebb627d4d54f.yy",
   },
   "spriteMaskId":null,
   "visible":true,

@@ -12,8 +12,8 @@
   "duration":1.0,
   "name":"_233607__abstraktgeneriert__breaking_glass_1",
   "parent":{
-    "name":"Shatter_Sound",
-    "path":"folders/Sounds/Game Sounds/Shatter_Sound.yy",
+    "name":"Sounds",
+    "path":"folders/Sounds.yy",
   },
   "preload":false,
   "resourceType":"GMSound",

@@ -12,8 +12,8 @@
   "duration":0.28510204,
   "name":"_142608__autistic_lucario__error",
   "parent":{
-    "name":"Game Sounds",
-    "path":"folders/Sounds/Game Sounds.yy",
+    "name":"Sounds",
+    "path":"folders/Sounds.yy",
   },
   "preload":false,
   "resourceType":"GMSound",

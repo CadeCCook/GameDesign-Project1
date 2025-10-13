@@ -12,8 +12,8 @@
   "duration":28.663197,
   "name":"_463789__shyguy014__mouse_squeaks",
   "parent":{
-    "name":"Rat-Bat_Sound",
-    "path":"folders/Sounds/Game Sounds/Rat-Bat_Sound.yy",
+    "name":"Sounds",
+    "path":"folders/Sounds.yy",
   },
   "preload":false,
   "resourceType":"GMSound",
