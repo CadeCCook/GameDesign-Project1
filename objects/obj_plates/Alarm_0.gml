@@ -1,3 +1,3 @@
 if (_game_over_pending) {
-    room_goto(rm_end);
+    room_goto(rm_gameover);
 }

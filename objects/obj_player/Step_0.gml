@@ -14,13 +14,21 @@ if (left || right) {
 }
 
 var dx = 0;
+var moving = false;
 if (left && !instance_place(x - current_speed, y - 2, obj_block)) {
     dx -= current_speed;
     image_xscale = -1;
+	sprite_index = spr_player_run;
+	moving = true;
 }
 if (right && !instance_place(x + current_speed, y - 2, obj_block)) {
     dx += current_speed;
     image_xscale = 1;
+	sprite_index = spr_player_run_left;
+	moving = true;
+}
+if (moving == false) {
+	sprite_index = spr_player	
 }
 x += dx;
 
@@ -51,7 +59,7 @@ vspeed = min(vspeed, 12);
 if (on_ground && abs(dx) > 0.05) {
     if (sprite_index != spr_player_run) {
         sprite_index = spr_player_run;
-        image_speed  = 0.18;
+        //image_speed  = 0.18;
     }
 } 
 
@@ -59,12 +67,12 @@ else if (on_ground) {
     if (sprite_index != spr_player) {
         sprite_index = spr_player;
     }
-    image_speed = 0;
+    //image_speed = 0;
 } 
 
 else {
     if (sprite_index != spr_player) {
         sprite_index = spr_player;
     }
-    image_speed = 0;
+    //image_speed = 0;
 }

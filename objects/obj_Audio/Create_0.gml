@@ -17,8 +17,8 @@ function music_play(track, priority = 1, loop = true, fade_ms = 400) {
     audio_sound_gain(track, 1, fade_ms);
     global.current_track = track;
 
-    alarm[0] = ceil(fade_ms / (1000 / room_speed));
+    alarm[0] = ceil(fade_ms / (1000 / gamespeed_fps));
     global._music_to_stop = old;
 }
 
-//music_play(Game_Soundtrack);
+music_play(Game_Soundtrack);
