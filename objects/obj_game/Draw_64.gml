@@ -113,15 +113,15 @@ if (mouse_check_button_pressed(mb_left)) {
             global.shop.lives_level += 1;
             save_progress();
 
-            //updates the start lives for the next play through
+            // update starting lives for future runs
             recompute_starting_lives();
 
-            //this changes the plate life instantly after making the purchase
+            // optional: apply immediately if current lives are below new starting value
             if (global.lives < global.starting_lives) {
                 global.lives = global.starting_lives;
                 if (instance_exists(obj_plates)) with (obj_plates) {
                     lives = global.lives;
-                    image_index = clamp(lives - 1, 0, image_number - 1);
+                    _sync_plate_sprite_from_lives();
                     plate_weight = weight_effect / max(lives, 1);
                     _drop_cooldown = 0;
                     _game_over_pending = false;

@@ -23,5 +23,5 @@ if (keyboard_check_pressed(ord("F"))) {
 // Restart room with R
 if (keyboard_check_pressed(ord("R"))) {
     if (instance_exists(obj_game)) with (obj_game) reset_run();
-    room_goto(rm_tutorial);
+	room_goto(rm_tutorial);
 }

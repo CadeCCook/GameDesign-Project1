@@ -59,13 +59,15 @@ function recompute_starting_lives() {
 function reset_run() {
     recompute_starting_lives();
     global.lives = global.starting_lives;
+
     global.level_time_left = global.level_time_total;
     _time_out_triggered = false;
+
     global.shield_charges = global.shield_owned ? 1 : 0;
 
     if (instance_exists(obj_plates)) with (obj_plates) {
         lives = global.lives;
-        image_index = (lives <= 0) ? empty_frame_index : clamp(lives - 1, 0, image_number - 1);
+        _sync_plate_sprite_from_lives();
         plate_weight = weight_effect / max(lives, 1);
         _drop_cooldown = 0;
         _game_over_pending = false;

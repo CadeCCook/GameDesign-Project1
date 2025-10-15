@@ -1,5 +1,4 @@
 if (_game_over_pending) {
-    image_index = empty_frame_index;
     visible = false;
     exit;
 }

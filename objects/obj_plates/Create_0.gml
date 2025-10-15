@@ -2,36 +2,31 @@ image_speed = 0;
 
 lives = variable_global_exists("lives") ? global.lives : 5;
 
-max_tilt_deg        = 60;
-tilt_nudge_back     = 10;
-drop_cooldown_steps = 10;
-
-//sprite mapping for plates
+//for switching frames for plates
 empty_frame_index = 0;
 full_frame_index  = image_number - 1;
 
-//changes art when player gets plate upgrade
 function _sync_plate_sprite_from_lives() {
     if (lives <= 0) {
         image_index = empty_frame_index;
     } else {
-        var max_visible_plates = abs(full_frame_index - empty_frame_index);
-        var shown = clamp(lives, 1, max_visible_plates);
-        if (full_frame_index > empty_frame_index) {
-            image_index = empty_frame_index + shown;
-        } else {
-            image_index = empty_frame_index - shown;
-        }
+        var shown = clamp(lives, 1, full_frame_index - empty_frame_index);
+        image_index = empty_frame_index + shown;
     }
 }
 
+//start plate art
 _sync_plate_sprite_from_lives();
+
+max_tilt_deg        = 60;
+tilt_nudge_back     = 10;
+drop_cooldown_steps = 10;
 
 plate_weight       = weight_effect / max(lives, 1);
 _drop_cooldown     = 0;
 _game_over_pending = false;
 
-//drop one plate
+//for dropped plate
 _drop_one_plate = function(sign) {
     image_angle += (sign > 0) ? -tilt_nudge_back : +tilt_nudge_back;
 
