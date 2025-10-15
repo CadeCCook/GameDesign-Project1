@@ -14,8 +14,14 @@ if (keyboard_check_pressed(vk_escape)) {
     game_end();
 }
 
-// Toggle fullscreen on 'F' isnt working
+// Toggle fullscreen with 'F' isnt working
 if (keyboard_check_pressed(ord("F"))) {
     var fs = window_get_fullscreen();
     window_set_fullscreen(!fs);
+}
+
+// Restart room with R
+if (keyboard_check_pressed(ord("R"))) {
+    if (instance_exists(obj_game)) with (obj_game) reset_run();
+    room_goto(rm_tutorial);
 }
