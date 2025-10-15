@@ -24,7 +24,7 @@ if (left && !instance_place(x - current_speed, y - 2, obj_block)) {
 if (right && !instance_place(x + current_speed, y - 2, obj_block)) {
     dx += current_speed;
     image_xscale = 1;
-	sprite_index = spr_player_run_left;
+	sprite_index = spr_player_run;
 	moving = true;
 }
 if (moving == false) {
@@ -63,16 +63,15 @@ if (on_ground && abs(dx) > 0.05) {
     }
 } 
 
-else if (on_ground) {
+else if (on_ground && abs(dx) == 0) {
     if (sprite_index != spr_player) {
         sprite_index = spr_player;
     }
     //image_speed = 0;
 } 
 
-else {
-    if (sprite_index != spr_player) {
-        sprite_index = spr_player;
-    }
-    //image_speed = 0;
+if (!on_ground) {
+	if (sprite_index != spr_player_fall_up){
+		sprite_index = spr_player_fall_up
+	}
 }

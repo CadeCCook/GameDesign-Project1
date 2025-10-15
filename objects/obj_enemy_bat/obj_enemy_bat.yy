@@ -34,8 +34,8 @@
   "resourceVersion":"2.0",
   "solid":false,
   "spriteId":{
-    "name":"Bat_Fly_250x250",
-    "path":"sprites/Bat_Fly_250x250/Bat_Fly_250x250.yy",
+    "name":"spr_bat",
+    "path":"sprites/spr_bat/spr_bat.yy",
   },
   "spriteMaskId":null,
   "visible":true,
