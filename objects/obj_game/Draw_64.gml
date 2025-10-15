@@ -3,7 +3,7 @@ draw_set_valign(fa_top);
 draw_text(16, 16, "Coins: " + string(global.coins));
 
 if (global.show_shop) {
-    var px = 48, py = 64, pw = 420, ph = 220;
+    var px = 48, py = 64, pw = 450, ph = 280;
     draw_set_alpha(0.85);
     draw_set_colour(c_black);
     draw_rectangle(px, py, px+pw, py+ph, false);
@@ -69,6 +69,7 @@ draw_text(sbx1+12, sby1+8, shield_label);
 var shield_price = shield_owned ? "OWNED" : ("Cost: " + string(shield_cost) + " coins");
 draw_text(sbx1+12, sby1+28, shield_price);
 
+
 if (mouse_check_button_pressed(mb_left)) {
     var mx = device_mouse_x_to_gui(0);
     var my = device_mouse_y_to_gui(0);
@@ -78,6 +79,58 @@ if (mouse_check_button_pressed(mb_left)) {
             global.shield_owned = true;
             global.shield_charges = 1;
             save_progress();
+        }
+    }
+}
+
+//lives upgrade
+
+var ly  = py + 170;
+var lbx1 = px+16, lby1 = ly, lbx2 = px+pw-16, lby2 = ly+52;
+
+var lives_lvl = global.shop.lives_level;
+var lives_max = global.shop.lives_max;
+var lives_cost = (lives_lvl < lives_max) ? shop_lives_cost() : 0;
+var can_buy_lives = (lives_lvl < lives_max) && (global.coins >= lives_cost);
+
+draw_set_colour(can_buy_lives ? make_colour_rgb(160,120,60) : make_colour_rgb(90,90,90));
+draw_rectangle(lbx1, lby1, lbx2, lby2, false);
+
+draw_set_colour(c_white);
+var lives_label = "More Plates (start +1 per level)   Lvl " + string(lives_lvl) + "/" + string(lives_max);
+draw_text(lbx1+12, lby1+8, lives_label);
+
+var lives_price = (lives_lvl < lives_max) ? ("Cost: " + string(lives_cost) + " coins") : "MAXED";
+draw_text(lbx1+12, lby1+28, lives_price);
+
+
+if (mouse_check_button_pressed(mb_left)) {
+    var mx = device_mouse_x_to_gui(0);
+    var my = device_mouse_y_to_gui(0);
+    if (point_in_rectangle(mx, my, lbx1, lby1, lbx2, lby2)) {
+        if (lives_lvl < lives_max && global.coins >= lives_cost) {
+            global.coins -= lives_cost;
+            global.shop.lives_level += 1;
+            save_progress();
+
+            //updates the start lives for the next play through
+            recompute_starting_lives();
+
+            //this changes the plate life instantly after making the purchase
+            if (global.lives < global.starting_lives) {
+                global.lives = global.starting_lives;
+                if (instance_exists(obj_plates)) with (obj_plates) {
+                    lives = global.lives;
+                    image_index = clamp(lives - 1, 0, image_number - 1);
+                    plate_weight = weight_effect / max(lives, 1);
+                    _drop_cooldown = 0;
+                    _game_over_pending = false;
+                    image_angle = 0;
+                    visible = true;
+                }
+            }
+        } else {
+            audio_play_sound(_142608__autistic_lucario__error, 0, false);
         }
     }
 }
