@@ -3,7 +3,7 @@ draw_set_valign(fa_top);
 draw_text(16, 16, "Coins: " + string(global.coins));
 
 if (global.show_shop) {
-    var px = 48, py = 64, pw = 420, ph = 160;
+    var px = 48, py = 64, pw = 420, ph = 220;
     draw_set_alpha(0.85);
     draw_set_colour(c_black);
     draw_rectangle(px, py, px+pw, py+ph, false);
@@ -51,5 +51,54 @@ if (global.show_shop) {
         }
     }
 
+//shield upgrade
+
+var shy = py + 110; //just to set next button under the first
+var sbx1 = px+16, sby1 = shy, sbx2 = px+pw-16, sby2 = shy+52;
+var shield_cost = 500;
+var shield_owned = global.shield_owned;
+var can_buy_shield = (!shield_owned) && (global.coins >= shield_cost);
+
+draw_set_colour(can_buy_shield ? make_colour_rgb(60,160,220) : make_colour_rgb(90,90,90));
+draw_rectangle(sbx1, sby1, sbx2, sby2, false);
+
+draw_set_colour(c_white);
+var shield_label = "Shield (negate one mob hit)";
+draw_text(sbx1+12, sby1+8, shield_label);
+
+var shield_price = shield_owned ? "OWNED" : ("Cost: " + string(shield_cost) + " coins");
+draw_text(sbx1+12, sby1+28, shield_price);
+
+if (mouse_check_button_pressed(mb_left)) {
+    var mx = device_mouse_x_to_gui(0);
+    var my = device_mouse_y_to_gui(0);
+    if (point_in_rectangle(mx, my, sbx1, sby1, sbx2, sby2)) {
+        if (!shield_owned && global.coins >= shield_cost) {
+            global.coins -= shield_cost;
+            global.shield_owned = true;
+            global.shield_charges = 1;
+            save_progress();
+        }
+    }
+}
+
     draw_text(px+pw-120, py+ph-24, "[S] Close");
 }
+
+//timer
+
+if (room == rm_gameover) exit;
+
+var gw = display_get_gui_width();
+
+var t  = max(0, floor(global.level_time_left));
+var mm = t div 60;
+var ss = t mod 60;
+
+var mm_text = (mm < 10) ? ("0" + string(mm)) : string(mm);
+var ss_text = (ss < 10) ? ("0" + string(ss)) : string(ss);
+
+draw_set_halign(fa_right);
+draw_set_valign(fa_top);
+draw_text(gw - 16, 16, mm_text + ":" + ss_text);
+draw_set_halign(fa_left);

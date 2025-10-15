@@ -17,4 +17,3 @@ if (hovered && mouse_check_button_pressed(mb_left)) {
     if (instance_exists(obj_game)) with (obj_game) reset_run();
     room_goto(restart_room);
 }
-
