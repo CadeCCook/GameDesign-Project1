@@ -70,19 +70,8 @@ else if (on_ground && abs(dx) == 0) {
     //image_speed = 0;
 } 
 
-if (up && on_ground) {
-	if (sprite_index != spr_player_jump){
-		sprite_index = spr_player_jump
-	}
-} 
-/*
-else if (!on_ground && vspeed > 1) {
-	if (sprite_index != spr_marker){
-		sprite_index = spr_marker
-	}
-} 
-else if (!on_ground) {
-	if (sprite_index != spr_bat){
-		sprite_index = spr_bat
+if (!on_ground) {
+	if (sprite_index != spr_player_fall_up){
+		sprite_index = spr_player_fall_up
 	}
 }
