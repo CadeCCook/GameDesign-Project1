@@ -31,8 +31,8 @@
   "resourceVersion":"2.0",
   "solid":false,
   "spriteId":{
-    "name":"spr_buzzsaw",
-    "path":"sprites/spr_buzzsaw/spr_buzzsaw.yy",
+    "name":"Buzz_Saw_500x500",
+    "path":"sprites/Buzz_Saw_500x500/Buzz_Saw_500x500.yy",
   },
   "spriteMaskId":null,
   "visible":true,

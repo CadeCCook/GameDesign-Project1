@@ -4,7 +4,6 @@ if (!variable_global_exists("base_starting_lives")) global.base_starting_lives =
 if (!variable_global_exists("starting_lives"))      global.starting_lives      = global.base_starting_lives;
 if (!variable_global_exists("control_mult"))		global.control_mult = 1.0;
 
-
 if (!variable_global_exists("booted")) {
     if (file_exists("save.ini")) {
         ini_open("save.ini");

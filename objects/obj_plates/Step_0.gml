@@ -36,8 +36,6 @@ if (keyboard_check(ord("A"))){
 	image_angle += control_effect * global.control_mult
 }
 
-// Passive tipping once beyond angle thresholds
-// every 10 degrees of rotation up to 50 will increase the rate of tilting 
 for (var i = -10; i >= -50; i -= 10){
 	if (image_angle < i) {
 		image_angle -= weight_effect
@@ -45,7 +43,6 @@ for (var i = -10; i >= -50; i -= 10){
 		break
 	}
 }
-	
 
 for (var i = 10; i <= 50; i += 10){
 	if (image_angle > i) {

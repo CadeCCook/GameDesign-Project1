@@ -121,7 +121,7 @@ if (mouse_check_button_pressed(mb_left)) {
                 global.lives = global.starting_lives;
                 if (instance_exists(obj_plates)) with (obj_plates) {
                     lives = global.lives;
-					with(obj_plates){
+                    with(obj_plates){
 						show_debug_message("lives:" + string(lives))
 						other.image_index = clamp(lives, 0, global.lives)
 					}
@@ -139,10 +139,8 @@ if (mouse_check_button_pressed(mb_left)) {
 }
 
     draw_text(px+pw-120, py+ph-24, "[S] Close");
-
-
-
-// control upgrade
+	
+	// control upgrade
 var my  = py + 230;
 var mbx1 = px+16, mby1 = my, mbx2 = px+pw-16, mby2 = my+52;
 
@@ -177,12 +175,7 @@ if (mouse_check_button_pressed(mb_left)) {
 }
 
 
-
 }
-
-
-
-
 
 //timer
 
