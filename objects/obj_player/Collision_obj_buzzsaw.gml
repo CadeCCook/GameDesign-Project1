@@ -1,5 +1,12 @@
-if(!invuln) {
-	drop_plate()
+//shield
+if (global.shield_charges > 0) {
+    global.shield_charges = 0;
+    invuln = true;
+    exit;
 }
-invuln = true
-alarm[0] = 10
+
+if(!invuln) {
+    drop_plate();
+}
+invuln = true;
+alarm[0] = 10;
