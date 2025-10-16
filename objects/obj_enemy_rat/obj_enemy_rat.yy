@@ -37,8 +37,8 @@
   "resourceVersion":"2.0",
   "solid":false,
   "spriteId":{
-    "name":"Rat_Idle_300x300",
-    "path":"sprites/Rat_Idle_300x300/Rat_Idle_300x300.yy",
+    "name":"Rat_Walk_300x300",
+    "path":"sprites/Rat_Walk_300x300/Rat_Walk_300x300.yy",
   },
   "spriteMaskId":null,
   "visible":true,
