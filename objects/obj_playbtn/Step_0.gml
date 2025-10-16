@@ -4,7 +4,7 @@ if (position_meeting(mouse_x, mouse_y, obj_playbtn)) {
 	
 	//if left mouse button pressed goes to level 1
 	if(mouse_check_button_pressed(mb_left)){
-		room_goto(rm_tutorial);
+		room_goto(rm_shop);
 	}
 } else {
 	hovered = false;
