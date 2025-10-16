@@ -2,6 +2,8 @@ persistent = true;
 
 if (!variable_global_exists("base_starting_lives")) global.base_starting_lives = 5;
 if (!variable_global_exists("starting_lives"))      global.starting_lives      = global.base_starting_lives;
+if (!variable_global_exists("control_mult"))		global.control_mult = 1.0;
+
 
 if (!variable_global_exists("booted")) {
     if (file_exists("save.ini")) {
@@ -18,7 +20,11 @@ if (!variable_global_exists("booted")) {
             jump_base_cost: 10,
 
             lives_level:    clamp(saved_lives, 0, 3),
-            lives_max:      3
+            lives_max:      3,
+			
+			control_mult_level: 0,
+			control_mult_max:   5,
+			control_mult:   0
         };
         global.shield_owned = (shield_owned == 1);
     } else {
@@ -29,9 +35,14 @@ if (!variable_global_exists("booted")) {
             jump_base_cost: 10,
 
             lives_level:    0,
-            lives_max:      3
+            lives_max:      3,
+			
+			control_mult_level: 0,
+			control_mult_max:   5,
+			control_mult:   0
         };
         global.shield_owned = false;
+		global.control_mult = 1.0;
 
         ini_open("save.ini");
         ini_write_real("player", "coins",           global.coins);
@@ -97,3 +108,9 @@ function save_progress() {
 recompute_starting_lives();
 global.lives = global.starting_lives;
 global.shield_charges = global.shield_owned ? 1 : 0;
+
+
+//for plate control upgrade
+if (!variable_struct_exists(global.shop, "control_mult_level")) {
+    global.shop.control_mult_level = 0;
+}

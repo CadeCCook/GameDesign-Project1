@@ -1,3 +1,3 @@
 global.game_over = false
-lives = 5
+lives = global.lives
 score = 0

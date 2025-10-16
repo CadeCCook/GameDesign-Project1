@@ -1,3 +1,7 @@
+if (keyboard_check_pressed(ord("S"))) {
+    global.show_shop = !global.show_shop;
+}
+
 if (!_time_out_triggered) {
     global.level_time_left = max(0, global.level_time_left - (1 / room_speed));
     if (global.level_time_left <= 0) {

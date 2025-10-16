@@ -121,7 +121,10 @@ if (mouse_check_button_pressed(mb_left)) {
                 global.lives = global.starting_lives;
                 if (instance_exists(obj_plates)) with (obj_plates) {
                     lives = global.lives;
-                    _sync_plate_sprite_from_lives();
+					with(obj_plates){
+						show_debug_message("lives:" + string(lives))
+						other.image_index = clamp(lives, 0, global.lives)
+					}
                     plate_weight = weight_effect / max(lives, 1);
                     _drop_cooldown = 0;
                     _game_over_pending = false;
@@ -136,7 +139,50 @@ if (mouse_check_button_pressed(mb_left)) {
 }
 
     draw_text(px+pw-120, py+ph-24, "[S] Close");
+
+
+
+// control upgrade
+var my  = py + 230;
+var mbx1 = px+16, mby1 = my, mbx2 = px+pw-16, mby2 = my+52;
+
+var mult_lvl = global.shop.control_mult_level;
+var mult_max = 5;
+var mult_cost = 400 + (mult_lvl * 200);
+var can_buy_mult = (mult_lvl < mult_max) && (global.coins >= mult_cost);
+
+draw_set_colour(can_buy_mult ? make_colour_rgb(200,100,200) : make_colour_rgb(90,90,90));
+draw_rectangle(mbx1, mby1, mbx2, mby2, false);
+
+draw_set_colour(c_white);
+var mult_label = "Multiplier (+10% per level)   Lvl " + string(mult_lvl) + "/" + string(mult_max);
+draw_text(mbx1+12, mby1+8, mult_label);
+
+var mult_price = (mult_lvl < mult_max) ? ("Cost: " + string(mult_cost) + " coins") : "MAXED";
+draw_text(mbx1+12, mby1+28, mult_price);
+
+if (mouse_check_button_pressed(mb_left)) {
+    var mx = device_mouse_x_to_gui(0);
+    var my = device_mouse_y_to_gui(0);
+    if (point_in_rectangle(mx, my, mbx1, mby1, mbx2, mby2)) {
+        if (mult_lvl < mult_max && global.coins >= mult_cost) {
+            global.coins -= mult_cost;
+            global.shop.control_mult_level += 1;
+            global.control_mult = 1 + (global.shop.control_mult_level * 0.1);
+            save_progress();
+        } else {
+            audio_play_sound(_142608__autistic_lucario__error, 0, false);
+        }
+    }
 }
+
+
+
+}
+
+
+
+
 
 //timer
 
