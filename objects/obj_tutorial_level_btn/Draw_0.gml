@@ -1,0 +1,1 @@
+draw_sprite(spr_tutorial_level, image_index, x, y);
