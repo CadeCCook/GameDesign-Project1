@@ -2,7 +2,7 @@ if (keyboard_check_pressed(ord("S"))) {
     global.show_shop = !global.show_shop;
 }
 
-if (!_time_out_triggered) {
+if (!_time_out_triggered && (room == rm_tutorial || room == rm_level1)) {
     global.level_time_left = max(0, global.level_time_left - (1 / room_speed));
     if (global.level_time_left <= 0) {
         _time_out_triggered = true;

@@ -2,7 +2,8 @@ persistent = true;
 
 if (!variable_global_exists("base_starting_lives")) global.base_starting_lives = 5;
 if (!variable_global_exists("starting_lives"))      global.starting_lives      = global.base_starting_lives;
-if (!variable_global_exists("control_mult"))        global.control_mult        = 1.0;
+if (!variable_global_exists("control_mult"))		global.control_mult = 1.0;
+
 
 if (!variable_global_exists("booted")) {
     if (file_exists("save.ini")) {
@@ -11,7 +12,6 @@ if (!variable_global_exists("booted")) {
         var saved_jump    = ini_read_real("shop", "jump_level",   0);
         var shield_owned  = ini_read_real("shop", "shield_owned", 0);
         var saved_lives   = ini_read_real("shop", "lives_level",  0);
-        var saved_coinmul = ini_read_real("shop", "coin_mult_level", 0);
         ini_close();
 
         global.shop = {
@@ -21,14 +21,10 @@ if (!variable_global_exists("booted")) {
 
             lives_level:    clamp(saved_lives, 0, 3),
             lives_max:      3,
-            
-
-            control_mult_level: 0,
-            control_mult_max:   5,
-            control_mult:       0,
-
-            coin_mult_level: clamp(saved_coinmul, 0, 5),
-            coin_mult_max:   5
+			
+			control_mult_level: 0,
+			control_mult_max:   5,
+			control_mult:   0
         };
         global.shield_owned = (shield_owned == 1);
     } else {
@@ -40,23 +36,19 @@ if (!variable_global_exists("booted")) {
 
             lives_level:    0,
             lives_max:      3,
-            
-            control_mult_level: 0,
-            control_mult_max:   5,
-            control_mult:       0,
-
-            coin_mult_level: 0,
-            coin_mult_max:   5
+			
+			control_mult_level: 0,
+			control_mult_max:   5,
+			control_mult:   0
         };
         global.shield_owned = false;
-        global.control_mult = 1.0;
+		global.control_mult = 1.0;
 
         ini_open("save.ini");
         ini_write_real("player", "coins",           global.coins);
         ini_write_real("shop",   "jump_level",      global.shop.jump_level);
         ini_write_real("shop",   "shield_owned",    0);
         ini_write_real("shop",   "lives_level",     global.shop.lives_level);
-        ini_write_real("shop",   "coin_mult_level", 0);
         ini_close();
     }
 
@@ -109,7 +101,6 @@ function save_progress() {
     ini_write_real("shop",   "jump_level",      global.shop.jump_level);
     ini_write_real("shop",   "shield_owned",    global.shield_owned ? 1 : 0);
     ini_write_real("shop",   "lives_level",     global.shop.lives_level);
-    ini_write_real("shop",   "coin_mult_level", global.shop.coin_mult_level);
     ini_close();
 }
 
@@ -123,5 +114,3 @@ global.shield_charges = global.shield_owned ? 1 : 0;
 if (!variable_struct_exists(global.shop, "control_mult_level")) {
     global.shop.control_mult_level = 0;
 }
-
-global.coin_mult = power(2, global.shop.coin_mult_level);
