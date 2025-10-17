@@ -32,8 +32,8 @@
   "resourceVersion":"2.0",
   "solid":false,
   "spriteId":{
-    "name":"Play_Button_1080x1080",
-    "path":"sprites/Play_Button_1080x1080/Play_Button_1080x1080.yy",
+    "name":"Play_New_Button_1920x1080",
+    "path":"sprites/Play_New_Button_1920x1080/Play_New_Button_1920x1080.yy",
   },
   "spriteMaskId":null,
   "visible":true,

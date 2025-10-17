@@ -32,8 +32,8 @@
   "resourceVersion":"2.0",
   "solid":false,
   "spriteId":{
-    "name":"Instructions_Button_1080x1080",
-    "path":"sprites/Instructions_Button_1080x1080/Instructions_Button_1080x1080.yy",
+    "name":"Instructions_New_Button_1920x1080",
+    "path":"sprites/Instructions_New_Button_1920x1080/Instructions_New_Button_1920x1080.yy",
   },
   "spriteMaskId":null,
   "visible":true,

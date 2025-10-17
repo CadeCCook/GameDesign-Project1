@@ -32,8 +32,8 @@
   "resourceVersion":"2.0",
   "solid":false,
   "spriteId":{
-    "name":"Credits_Button_1080x1080",
-    "path":"sprites/Credits_Button_1080x1080/Credits_Button_1080x1080.yy",
+    "name":"Credits_New_Button_1920x1080",
+    "path":"sprites/Credits_New_Button_1920x1080/Credits_New_Button_1920x1080.yy",
   },
   "spriteMaskId":null,
   "visible":true,
