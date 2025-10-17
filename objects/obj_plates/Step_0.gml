@@ -70,7 +70,7 @@ if (image_angle >= 60) {
 		var dx = lengthdir_x(stack_height, image_angle + 90);
 		var dy = lengthdir_y(stack_height, image_angle + 90);
 		instance_create_layer(x + dx, y + dy, "Instances", obj_drop_plate);
-	} else {
+	} else if(!instance_exists(obj_drop_plate)){
 		image_index = 0
 		instance_create_layer(x, y, "Instances", obj_drop_plate);
 	}
@@ -81,13 +81,13 @@ if (image_angle <= -60) {
 	weight_effect = clamp(weight_effect - plate_weight, 0, weight_effect)
 	lives -= 1
 	image_index = clamp(lives, 0, global.lives)
-	// having 2 of these blocks seems really redundant but my brain hurts and I'm tired (fix later)
+	
 	if (lives > 0) {
 		var stack_height = 28 - 5 * (5 - lives);
 		var dx = lengthdir_x(stack_height, image_angle + 90);
 		var dy = lengthdir_y(stack_height, image_angle + 90);
 		instance_create_layer(x + dx, y + dy, "Instances", obj_drop_plate);
-	} else {
+	} else if(!instance_exists(obj_drop_plate)){
 		image_index = 0
 		instance_create_layer(x, y, "Instances", obj_drop_plate);
 	}	
