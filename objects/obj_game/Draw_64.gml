@@ -1,9 +1,15 @@
 draw_set_halign(fa_left);
 draw_set_valign(fa_top);
 draw_set_colour(c_black);
+//Coins only show in levels and in shop
 if (room == rm_tutorial || room == rm_level1 || room == rm_shop){
+	draw_set_colour(c_white)
+	if (room == rm_shop){
+			draw_set_colour(c_black);
+	}
 	draw_text(345, 141, "Coins: " + string(global.coins));
 }
+
 
 if (global.show_shop) {
     var px = 48, py = 64, pw = 450, ph = 280;
