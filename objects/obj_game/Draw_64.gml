@@ -1,6 +1,7 @@
 draw_set_halign(fa_left);
 draw_set_valign(fa_top);
-draw_text(16, 16, "Coins: " + string(global.coins));
+draw_set_colour(c_black);
+draw_text(345, 141, "Coins: " + string(global.coins));
 
 if (global.show_shop) {
     var px = 48, py = 64, pw = 450, ph = 280;
@@ -182,8 +183,6 @@ if (mouse_check_button_pressed(mb_left)) {
 
 
 
-
-
 //timer
 if(room == rm_tutorial || room == rm_level1){
 	if (room == rm_gameover) exit;
@@ -197,6 +196,7 @@ if(room == rm_tutorial || room == rm_level1){
 	var mm_text = (mm < 10) ? ("0" + string(mm)) : string(mm);
 	var ss_text = (ss < 10) ? ("0" + string(ss)) : string(ss);
 
+	draw_set_colour(c_white);
 	draw_set_halign(fa_right);
 	draw_set_valign(fa_top);
 	draw_text(gw - 16, 16, mm_text + ":" + ss_text);
