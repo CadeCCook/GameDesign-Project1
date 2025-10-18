@@ -1,7 +1,6 @@
 
-//restart game + reset upgrades
+//reset upgrades
 if (keyboard_check_pressed(vk_backspace)) {
-	audio_stop_sound(Game_Soundtrack)
 	global.starting_lives = global.base_starting_lives
 	global.lives = global.base_starting_lives
 	lives = global.lives
@@ -34,5 +33,5 @@ if (keyboard_check_pressed(vk_backspace)) {
     ini_write_real("shop",   "lives_level",     global.shop.lives_level);
     ini_close();
 	
-	room_goto(rm_tutorial);
+
 }
