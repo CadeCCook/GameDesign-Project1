@@ -1,4 +1,5 @@
-if (keyboard_check_pressed(ord("S"))) {
+var room_ok = ((room == rm_tutorial) || (room == rm_level1) || (room == rm_shop));
+if (room_ok && keyboard_check_pressed(ord("S"))) {
     global.show_shop = !global.show_shop;
 }
 

@@ -1,5 +1,12 @@
 persistent = true;
 
+if (variable_global_exists("__game_id") && instance_exists(global.__game_id)) {
+    if (global.__game_id != id) { instance_destroy(); exit; }
+} else {
+    global.__game_id = id;
+}
+
+
 if (!variable_global_exists("base_starting_lives")) global.base_starting_lives = 5;
 if (!variable_global_exists("starting_lives"))      global.starting_lives      = global.base_starting_lives;
 if (!variable_global_exists("control_mult"))		global.control_mult = 1.0;
